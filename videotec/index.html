@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDEOGAMES SCZ | Servicios Técnicos Profesionales</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DEFINICIÓN DE COLORES --- */
+        :root {
+            --accent-green: #7FFF00; /* Verde Neón */
+            --dark-green: #5d9e3b;   /* Verde Oscuro */
+            --menu-bg: #ffffff;      /* AHORA ES BLANCO */
+            --menu-text: #333333;    /* Texto oscuro para fondo blanco */
+            --menu-border: #f0f0f0;  /* Líneas separadoras sutiles */
+            --background-color: #f4f4f4;
+        }
+
+        /* --- ESTILO GENERAL --- */
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--background-color); 
+            color: var(--menu-text); 
+            margin-left: 260px; /* Espacio para el menú */
+            transition: margin-left 0.3s ease;
+        }
+
+        /* --- MENÚ LATERAL FIJO (SIDEBAR) BLANCO --- */
+        #menu-lateral {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--menu-bg);
+            color: var(--menu-text);
+            border-right: 1px solid #ddd; /* Borde sutil a la derecha */
+            overflow-y: auto;
+            z-index: 1000;
+            text-align: left;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.05); /* Sombra muy suave */
+        }
+
+        /* Estilo del título "Todas las categorías" */
+        .menu-titulo {
+            background-color: #ffffff;
+            padding: 30px 20px 20px 20px; /* Un poco más de aire arriba */
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: var(--dark-green); /* Color verde corporativo */
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--accent-green); /* Línea decorativa debajo */
+            line-height: 1.1;
+        }
+
+        #menu-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-lateral li {
+            border-bottom: 1px solid var(--menu-border); /* Líneas finas grises */
+        }
+
+        #menu-lateral a {
+            display: block;
+            padding: 18px 25px;
+            color: #555; /* Gris oscuro elegante */
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.2s ease;
+            font-weight: 600; /* Un poco más gordita la letra */
+        }
+
+        /* Efecto al pasar el ratón (Hover) */
+        #menu-lateral a:hover {
+            background-color: #f9f9f9; /* Fondo gris muy clarito */
+            color: var(--dark-green);  /* Texto se pone verde */
+            padding-left: 30px;        /* Pequeño desplazamiento */
+            border-left: 4px solid var(--accent-green); /* Borde verde a la izquierda */
+        }
+
+        /* --- BANNER HEADER --- */
+        #banner-header {
+            width: 100%;
+            height: 250px; 
+            background-color: var(--dark-green); 
+            background-image: url('banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container { 
+            width: 90%; 
+            max-width: 1000px;
+            margin: 30px auto; 
+            padding: 40px; 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
+            text-align: left;
+        }
+        
+        h2 { 
+            color: var(--dark-green); 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            margin-top: 50px; 
+            font-size: 2.5em; 
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+            scroll-margin-top: 20px;
+        }
+        
+        .modulo { 
+            margin-bottom: 40px; 
+            padding: 25px; 
+            border: 1px solid #eee; 
+            background-color: #fafafa; 
+            border-radius: 10px;
+            border-left: 6px solid var(--accent-green); 
+        }
+        .modulo h3 {
+            color: #222;
+            font-size: 1.6em;
+            margin-top: 0;
+            font-family: 'Bangers', cursive;
+        }
+
+        .btn-profesional {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-green); 
+            color: #222; 
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.5em; 
+            transition: all 0.3s;
+            font-family: 'Bangers', cursive;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .btn-profesional:hover {
+            background-color: #6ee600; 
+            transform: translateY(-2px); /* Efecto de elevación */
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        .embed-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+            background: #000; 
+            margin-top: 25px; 
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        footer { text-align: center; padding: 30px 0; background-color: #333; color: #888; margin-top: 60px; }
+
+        /* --- RESPONSIVE (MÓVIL) --- */
+        @media (max-width: 900px) {
+            body { margin-left: 0; }
+            #menu-lateral {
+                position: relative; 
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 4px solid var(--accent-green);
+            }
+            .menu-titulo {
+                font-size: 2em; /* Título más grande en móvil */
+                padding: 15px;
+            }
+            #menu-lateral ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: #f9f9f9;
+            }
+            #menu-lateral a {
+                padding: 15px 20px;
+                text-align: center;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="menu-lateral">
+        <div class="menu-titulo">Todas las<br>categorías</div>
+        
+        <ul>
+            <li><a href="pc.html">PC</a></li>
+			<li><a href="ps4.html">PlayStation 4</a></li>
+            <li><a href="ps3.html">PlayStation 3</a></li>
+            <li><a href="ps2.html">PlayStation 2</a></li>
+            <li><a href="xbox360.html">XBOX 360</a></li>
+			<li><a href="xbox.html">XBOX</a></li>
+        </ul>
+    </nav>
+
+    <div id="banner-header"></div>
+
+    <div class="container">
+
+        <section id="modificaciones">
+            <h2>🔓 Scene, modificaciones y mejoras</h2>
+            
+            <div class="modulo">
+                <h3>¿Tutoriales de YouTube que no funcionan? Te entiendo.</h3>
+                <p>Después de ver veinte tutoriales en internet y no conseguir actualizar tu consola, es normal pensar: "ahí lo dejo, esto no es para mí".</p>
+                <ul>
+                    <li>No tires la toalla ni arriesgues tu equipo.</li>
+                    <li>Deja la parte técnica en manos expertas y recupera el control de tu consola sin riesgos.</li>
+                    <li>Servicio rápido, seguro y con garantía de funcionamiento.</li>
+                </ul>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/KAvujyt1m-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="modulo">
+                <h3>Desbloquea el verdadero potencial (HEN, CFW, Emuladores)</h3>
+                <p>Tu consola puede hacer mucho más de lo que crees de fábrica. ¿Quieres jugar a tus copias de seguridad, revivir clásicos con emuladores o personalizar la interfaz?</p>
+                <p>Sabemos que el proceso puede ser intimidante. Un archivo incorrecto puede dejar tu equipo inservible (brick).</p>
+                <ul>
+                    <li>Instalación de Custom Firmware (CFW) o HEN según modelo.</li>
+                    <li>Configuración de tiendas y gestores de archivos (MultiMan, WebMan).</li>
+                    <li>Yo me encargo de todo el proceso técnico para que tú solo tengas que encender y disfrutar.</li>
+                </ul>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/2lLYXy7W1Yg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="#contacto" class="btn-profesional">QUIERO MODIFICAR MI CONSOLA</a>
+            </p>
+        </section>
+
+        <section id="reparaciones">
+            <h2>🛠️ Reparaciones y Mantenimiento</h2>
+
+            <div class="modulo">
+                <h3>Mantenimiento preventivo: Adiós al ruido</h3>
+                <p>Limpieza profunda, cambio de pasta térmica de alta calidad y thermal pads. Tu consola volverá a ser silenciosa.</p>
+                <div class="embed-container">
+                <iframe src="https://www.youtube.com/embed/6cg3Af170mY" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="#contacto" class="btn-profesional">SOLICITAR PRESUPUESTO</a>
+            </p>
+        </section>
+
+        <section id="proyectos">
+            <h2>🎥 Galería de Proyectos</h2>
+            <div class="modulo">
+                <h3>PS3 - El Rey de la Scene</h3>
+                <p>Mira cómo transformamos una PS3 olvidada en la máquina de entretenimiento definitiva.</p>
+                <div class="embed-container">
+                <iframe src="https://www.youtube.com/embed/VL7Aewsv_d0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>📞 Contacto Profesional</h2>
+            <div class="modulo" style="border-left: 6px solid #333;">
+                <p>Trabajemos juntos. Respuesta en menos de 24h.</p>
+                <ul style="font-size: 1.2em; line-height: 2; list-style: none;">
+                    <li>📧 <strong>Email:</strong> videogamesscz1@gmail.com</li>
+                    <li>📱 <strong>WhatsApp:</strong> 666666666</li>
+                    <li>📺 <strong>YouTube:</strong> <a href="https://www.youtube.com/@VIDEOGAMESSCZ" style="color: var(--dark-green); font-weight: bold; text-decoration: none;">@VIDEOGAMESSCZ</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 VIDEOGAMES SCZ | Expertos en Hardware y Scene.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const videos = document.querySelectorAll('.embed-container iframe');
+            
+            const observerOptions = { 
+                root: null, 
+                rootMargin: '0px', 
+                threshold: 0.5 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        let src = iframe.getAttribute('src');
+
+                        // Verificamos si ya se activó para no recargar
+                        if (!src.includes('autoplay=1')) {
+                            
+                            // Determinamos si usar ? o &
+                            const symbol = src.includes('?') ? '&' : '?';
+                            
+                            // AÑADIMOS:
+                            // autoplay=1 (reproducir)
+                            // mute=1 (silencio obligado para autoplay)
+                            // enablejsapi=1 (control api)
+                            // vq=hd1080 (sugerir calidad 1080p)
+                            
+                            iframe.src = src + symbol + "autoplay=1&mute=1&enablejsapi=1&vq=hd1080";
+                            
+                            observer.unobserve(iframe);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            videos.forEach(video => { observer.observe(video); });
+        });
+    </script>
+
+</body>
+</html>
