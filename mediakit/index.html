@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Kit | VIDEOGAMES SCZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- TEMA PLANTS VS ZOMBIES --- */
+        :root {
+            --pvz-green-light: #70c108; /* Verde brillante */
+            --pvz-green-dark: #3a6e0e;  /* Verde oscuro textos */
+            --pvz-brown: #6b4c34;       /* Marrón tierra */
+            --bg-white: #ffffff;
+            --bg-card: #f9fdf5;         /* Blanco menta suave */
+            --text-main: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .banner-container {
+            width: 100%;
+            height: 250px; 
+            /* Imagen del banner */
+            background-image: url('banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 6px solid var(--pvz-green-light);
+        }
+
+        .profile-section {
+            position: relative;
+            margin-top: 40px; 
+            z-index: 10;
+            padding-bottom: 20px;
+        }
+
+        .tagline { 
+            color: var(--pvz-green-dark); 
+            font-family: 'Bangers', cursive;
+            font-size: 2.2rem; 
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px rgba(112, 193, 8, 0.2);
+        }
+
+        /* --- BOTÓN DESCARGAR PDF (VERDE LIMA) --- */
+        .pdf-btn {
+            display: inline-block;
+            background-color: var(--pvz-green-light); 
+            color: white;
+            padding: 12px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: all 0.2s;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 0 var(--pvz-green-dark); 
+        }
+
+        .pdf-btn:hover {
+            transform: translateY(2px);
+            background-color: var(--pvz-green-dark); 
+            box-shadow: 0 2px 0 #2a520a;
+        }
+
+        .pdf-btn i {
+            margin-right: 8px;
+        }
+
+        /* --- ESTRUCTURA GENERAL --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        h2 { 
+            font-family: 'Bangers', cursive;
+            color: var(--pvz-green-dark);
+            border-bottom: 4px solid var(--pvz-green-light);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- ESTADÍSTICAS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 12px;
+            margin-bottom: 70px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-card);
+            padding: 25px 10px; 
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #eef6e0;
+            box-shadow: 0 5px 0 #dcecc0;
+            transition: transform 0.2s;
+            display: block;        
+            text-decoration: none; 
+            cursor: pointer;
+            min-width: 0; 
+        }
+
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--pvz-green-light); }
+
+        .stat-icon { font-size: 2.5rem; margin-bottom: 10px; }
+        
+        .stat-number { 
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem; 
+            color: var(--text-main);
+            display: block; 
+            line-height: 1;
+        }
+        
+        .stat-label { 
+            color: #777; 
+            font-weight: 800;
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Colores Redes Sociales */
+        .yt-color { color: #FF0000; }
+        .tk-color { color: #000000; text-shadow: 2px 2px 0 #00f2ea; } 
+        .x-color  { color: #000000; }
+        .fb-color { color: #1877F2; }
+        .ig-color { color: #E1306C; }
+
+        /* --- VIDEOS --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+            min-height: 200px;
+        }
+
+        .video-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 4px solid #fff;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        /* --- COLABORACIONES (Marcas) --- */
+        .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 70px;
+            padding: 20px;
+        }
+
+        .brand-logo {
+            height: 70px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+
+        .brand-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* --- SECCIÓN INFLUENCIA --- */
+        .influence-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 70px;
+            border-top: 6px solid var(--pvz-green-light);
+        }
+
+        .influence-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .comment-box {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 12px;
+            border: 1px solid #ddd;
+            background-color: #eee;
+        }
+
+        .comment-name {
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-right: 10px;
+        }
+
+        .comment-date {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* Estilo rotulador rojo */
+        .highlight-marker {
+            border: 2px solid #e13030;
+            border-radius: 50% 20% 40% 10%; /* Forma irregular */
+            padding: 2px 6px;
+            display: inline-block;
+            color: #000;
+            font-weight: 600;
+            background-color: rgba(255, 230, 230, 0.3); /* Fondo rojo muy sutil */
+        }
+
+        .influence-conclusion {
+            background-color: var(--bg-card);
+            border: 2px dashed var(--pvz-green-dark);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 30px;
+            color: var(--pvz-green-dark);
+            font-size: 1.1rem;
+        }
+
+        /* --- RESTO --- */
+        .about-text {
+            background: #fff;
+            padding: 40px;
+            border-left: 8px solid var(--pvz-green-light);
+            border-radius: 0 20px 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 70px;
+            font-size: 1.15rem;
+            color: #444;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 70px 20px;
+            background-color: var(--bg-card);
+            border: 3px dashed var(--pvz-green-light);
+            border-radius: 25px;
+            margin-bottom: 50px;
+        }
+
+        .email-btn {
+            display: inline-block;
+            background-color: var(--pvz-green-light);
+            color: white;
+            padding: 18px 50px;
+            font-family: 'Bangers', cursive;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            transition: all 0.2s;
+            box-shadow: 0 6px 0 var(--pvz-green-dark); 
+        }
+
+        .email-btn:hover { 
+            background-color: var(--pvz-green-dark); 
+            transform: translateY(4px); 
+            box-shadow: 0 2px 0 #2a520a;
+        }
+
+        footer {
+            background-color: var(--pvz-green-dark);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-weight: bold;
+        }
+
+        /* ========================================= */
+        /* AJUSTES PROFESIONALES PARA IMPRESIÓN (PDF) */
+        /* ========================================= */
+        @media print {
+            /* 1. MÁRGENES A CERO EN LA PÁGINA */
+            @page {
+                size: A4;
+                margin: 0 !important; /* Esto borra las cabeceras del navegador */
+            }
+
+            /* 2. Reseteo de colores y anchos */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background-color: #fff;
+                width: 100% !important;
+                /* Añadimos el margen aquí, DENTRO del cuerpo, para que no toque el borde del papel */
+                margin: 0 !important;
+                padding: 1.5cm !important; 
+                zoom: 0.80; /* Un poco más pequeño para asegurar que entra todo */
+            }
+
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* 3. OCULTAR ELEMENTOS QUE NO QUEREMOS EN PDF */
+            .pdf-btn { display: none !important; } 
+            #portfolio { display: none !important; } /* Ocultar vídeos */
+
+            /* 4. Limpieza visual de cajas */
+            .stat-card, .influence-section, .about-text, .contact-section {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
+
+            /* 5. EVITAR CORTES (AQUÍ ESTÁ LA SOLUCIÓN) */
+            section {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                margin-bottom: 30px !important;
+            }
+
+            h2, .stat-card, .comment-box, .brands-grid, header {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            /* 6. Arreglar Estadísticas */
+            .stats-grid {
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+            .stat-card {
+                flex: 1; 
+                min-width: 80px; 
+                padding: 10px 5px;
+            }
+            .stat-icon { font-size: 1.5rem; margin-bottom: 5px; } 
+            .stat-number { font-size: 1.8rem; }
+
+            /* 7. Banner ajustado */
+            .banner-container {
+                /* Forzamos que la imagen se vea aunque hayamos quitado margen */
+                margin: -1.5cm -1.5cm 30px -1.5cm !important; 
+                width: calc(100% + 3cm) !important;
+                height: 150px !important;
+                border-bottom: 4px solid var(--pvz-green-light);
+            }
+            .tagline { margin-bottom: 5px; font-size: 1.8rem; }
+
+            /* 8. Ajuste de marcas */
+            .brand-logo { 
+                height: 40px !important;
+                margin: 10px;
+            }
+            .brands-grid { gap: 20px; padding: 0; }
+        }
+
+        /* RESPONSIVE (MÓVIL) */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            .banner-container { height: 200px; }
+            h2 { font-size: 2rem; }
+            .stat-number { font-size: 2rem; }
+            .tagline { font-size: 1.5rem; }
+            .brand-logo { height: 50px; gap: 30px; }
+            .highlight-marker { border: none; background: #ffe6e6; border-radius: 4px; padding: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="banner-container"></div>
+        <div class="profile-section">
+            <span class="tagline">Creador de Contenido / Influencer / Modding Expert</span>
+            
+            <a href="mediakit.pdf" class="pdf-btn" download>
+                <i class="fa-solid fa-file-pdf"></i> Descargar Media Kit (PDF)
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="stats">
+            <div class="stats-grid">
+                <a href="https://youtube.com/@videogamesscz" target="_blank" class="stat-card">
+                    <i class="fa-brands fa-youtube stat-icon yt-color"></i>
+                    <span class="stat-number">294K</span>
+                    <span class="stat-label">Suscriptores</span>
+                </a>
+
+                <a href="https://www.tiktok.com/@videogamesscz" target="_blank" class="stat-card">
+                    <i class="fa-brands fa-tiktok stat-icon tk-color"></i>
+                    <span class="stat-number">84K</span>
+                    <span class="stat-label">Seguidores</span>
+                </a>
+                
+                <a href="https://x.com/SczVideogames" target="_blank" class="stat-card">
+                    <i class="fa-brands fa-x-twitter stat-icon x-color"></i>
+                    <span class="stat-number">13K</span>
+                    <span class="stat-label">Seguidores</span>
+                </a>
+
+                <a href="https://www.facebook.com/videogames.scz.90" target="_blank" class="stat-card">
+                    <i class="fa-brands fa-facebook stat-icon fb-color"></i>
+                    <span class="stat-number">56K</span>
+                    <span class="stat-label">Miembros</span>
+                </a>
+
+                <a href="https://www.instagram.com/videogamesscz/" target="_blank" class="stat-card">
+                    <i class="fa-brands fa-instagram stat-icon ig-color"></i>
+                    <span class="stat-number">5K</span>
+                    <span class="stat-label">Seguidores</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Sobre el Proyecto</h2>
+            <div class="about-text">
+                <p>
+                    ¡Hola! Soy <strong>VIDEOGAMES SCZ</strong>. Mi canal es el punto de referencia para la comunidad de 
+                    <strong>PlayStation, Homebrew y Modding</strong>. Me especializo en tutoriales técnicos simplificados, 
+                    reviews de hardware y las últimas noticias de la scene gaming.
+                </p>
+                <br>
+                <p>
+                    Ofrezco soluciones reales a problemas complejos, creando una conexión de confianza única con mi audiencia.
+                    Si buscas visibilidad en un nicho tecnológico y apasionado, ¡hablemos!
+                </p>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Últimos videos</h2>
+            <div class="portfolio-grid">
+                <div class="video-card">
+                    <iframe width="100%" height="220" src="https://youtube.com/embed/OJF55ew8pvo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe width="100%" height="220" src="https://youtube.com/embed/GvV2sIY4oGE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/oxk4vV5TSKE" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="collabs">
+            <h2 style="text-align: center; display: block; border: none;">He colaborado con</h2>
+            
+            <div class="brands-grid">
+                
+                <a href="#" title="Aliexpress">
+                    <img src="aliexpress.png" alt="Aliexpress" class="brand-logo">
+                </a>
+
+                <a href="#" title="Anbernic">
+                    <img src="anbernic.png" alt="Anbernic" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Arzopa">
+                    <img src="arzopa.png" alt="Arzopa" class="brand-logo">
+                </a>
+
+                <a href="#" title="Bangood">
+                    <img src="bangood.png" alt="Bangood" class="brand-logo">
+                </a>
+
+                <a href="#" title="Beelink">
+                    <img src="beelink.png" alt="Beelink" class="brand-logo">
+                </a>
+                
+				<a href="#" title="Xiaomi Blackshark">
+                    <img src="blackshark.png" alt="Xiaomi Blackshark" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Chuwi">
+                    <img src="chuwi.png" alt="Chuwi" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Cuktech">
+                    <img src="cuktech.png" alt="Cuktech" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Cubot">
+                    <img src="cubot.png" alt="Cubot" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Doogee">
+                    <img src="doogee.png" alt="Doogee" class="brand-logo">
+                </a>
+
+				<a href="#" title="Flexispot">
+                    <img src="flexispot.png" alt="Flexispot" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Gamesir">
+                    <img src="gamesir.png" alt="Gamesir" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Hbada">
+                    <img src="hbada.png" alt="Hbada" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Hotwav">
+                    <img src="hotwav.png" alt="Hotwav" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Minisforum">
+                    <img src="minisforum.png" alt="Minisforum" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Oukitel">
+                    <img src="oukitel.png" alt="Oukitel" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Temu">
+                    <img src="temu.png" alt="Temu" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Ulefone">
+                    <img src="ulefone.png" alt="Ulefone" class="brand-logo">
+                </a>
+				
+				<a href="#" title="Wanbo">
+                    <img src="wanbo.png" alt="Wanbo" class="brand-logo">
+                </a>
+				
+            </div>
+        </section>
+
+        <section id="influence">
+            <div class="influence-section">
+                <h2 style="margin-bottom: 10px; width: 100%;">INFLUENCIA REAL EN COMPRAS</h2>
+                <p class="influence-subtitle">Mi audiencia confía en mi criterio técnico. No solo miran, actúan.</p>
+
+                <div class="comment-box">
+                    <div class="comment-header">
+                        <img src="avatar1.png" class="comment-avatar" alt="Avatar frankourpk">
+                        
+                        <span class="comment-name">frankourpk</span>
+                        <span class="comment-date">hace 6 meses</span>
+                    </div>
+                    <p><span class="highlight-marker">Brutal, lo quiero</span></p>
+                </div>
+
+                <div class="comment-box">
+                    <div class="comment-header">
+                        <img src="avatar2.png" class="comment-avatar" alt="Avatar sergimateu2771">
+                        
+                        <span class="comment-name">sergimateu2771</span>
+                        <span class="comment-date">hace 2 meses</span>
+                    </div>
+                    <p>Qué buena pinta tiene. ¿Sólo vale 63 dólares? <span class="highlight-marker">Pues me pido una para España</span></p>
+                </div>
+
+                <div class="comment-box">
+                    <div class="comment-header">
+                        <img src="avatar3.png" class="comment-avatar" alt="Avatar jhosuanoboru322">
+                        
+                        <span class="comment-name">jhosuanoboru322</span>
+                        <span class="comment-date">hace 2 meses</span>
+                    </div>
+                    <p>Excelente recomendación, <span class="highlight-marker">una buena tablet nunca está de más.</span></p>
+                </div>
+
+                <div class="influence-conclusion">
+                    CONCLUSIÓN: Un vídeo en mi canal se traduce en ventas directas y confianza hacia la marca.
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-section">
+                <h2 style="border:none; text-align: center; font-size: 3rem;">CONTACTO COMERCIAL</h2>
+                <p style="font-size: 1.2rem; color: #555;">Disponible para campañas publicitarias, reviews de producto y patrocinios a largo plazo. 
+                    Solicita mi tarifario o una propuesta personalizada.</p>
+                <a href="mailto:videogamesscz1@gmail.com" class="email-btn">
+                    <i class="fa-regular fa-envelope"></i> CONTACTAR AHORA
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="background-color: #3a6e0e; color: white; text-align: center; padding: 40px 20px;">
+        
+        <p style="font-size: 1.3rem; margin-bottom: 20px; font-weight: bold; font-family: 'Bangers', cursive; letter-spacing: 1px;">
+            &copy; 2025 VIDEOGAMES SCZ - Hecho para Gamers.
+        </p>
+
+        <div style="width: 50px; height: 2px; background-color: #70c108; margin: 0 auto 20px auto;"></div>
+
+        <div style="font-size: 0.85rem; opacity: 0.8; max-width: 900px; margin: 0 auto; font-family: 'Montserrat', sans-serif; font-weight: normal; line-height: 1.5;">
+            <p>
+                <strong>Aviso Legal:</strong> Este sitio web es un portafolio profesional (Media Kit). 
+                El contenido es propiedad de <strong>VIDEOGAMES SCZ</strong>. 
+                Las marcas comerciales, logotipos e imágenes de terceros (como Aliexpress, Bangood, y marcas colaboradoras) 
+                se muestran únicamente con fines informativos y pertenecen a sus respectivos propietarios.
+            </p>
+            
+            <p style="margin-top: 10px;">
+                📧 Contacto: <a href="mailto:videogamesscz1@gmail.com" style="color: #70c108; text-decoration: none; font-weight: bold;">videogamesscz1@gmail.com</a>
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
